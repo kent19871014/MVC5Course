@@ -11,7 +11,8 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +21,21 @@ namespace MVC5Course.Models
             this.Order = new HashSet<Order>();
         }
     
+        [Required]
         public int ClientId { get; set; }
+        [Required]
+        [StringLength(10, ErrorMessage ="FirstNmae 最大不超過10個字元")]
         public string FirstName { get; set; }
+        [StringLength(10, ErrorMessage = "FirstNmae 最大不超過10個字元")]
+
+        [Required]
         public string MiddleName { get; set; }
+        [StringLength(10, ErrorMessage = "FirstNmae 最大不超過10個字元")]
+
+        [Required]
         public string LastName { get; set; }
+        [Required]
+        [RegularExpression("[MF]", ErrorMessage = "Gender 欄位只能輸入'M'或'F'")]
         public string Gender { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<double> CreditRating { get; set; }
