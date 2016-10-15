@@ -139,5 +139,16 @@ namespace MVC5Course.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(ClientLoginViewModels client)
+        {
+            return View("LoginResult", client);
+        }
     }
 }
