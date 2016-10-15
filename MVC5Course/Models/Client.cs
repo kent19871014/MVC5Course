@@ -11,6 +11,7 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Client
@@ -24,20 +25,26 @@ namespace MVC5Course.Models
         [Required]
         public int ClientId { get; set; }
         [Required]
-        [StringLength(10, ErrorMessage ="FirstNmae 最大不超過10個字元")]
+        [DisplayName("名")]
+        [StringLength(10, ErrorMessage = "{0} 最大不超過{1}個字元")]
         public string FirstName { get; set; }
-        [StringLength(10, ErrorMessage = "FirstNmae 最大不超過10個字元")]
+        [StringLength(10, ErrorMessage = "{0} 最大不超過{1}個字元")]
 
+        [DisplayName("中間名")]
         [Required]
         public string MiddleName { get; set; }
-        [StringLength(10, ErrorMessage = "FirstNmae 最大不超過10個字元")]
+        [StringLength(10, ErrorMessage = "{0} 最大不超過{1}個字元")]
 
+        [DisplayName("姓名")]
         [Required]
         public string LastName { get; set; }
+        [DisplayName("性別")]
         [Required]
-        [RegularExpression("[MF]", ErrorMessage = "Gender 欄位只能輸入'M'或'F'")]
+        [RegularExpression("[MF]", ErrorMessage = "{0} 欄位只能輸入'M'或'F'")]
         public string Gender { get; set; }
+        [DisplayName("生日")]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        [DisplayName("信用評等")]
         public Nullable<double> CreditRating { get; set; }
         public string XCode { get; set; }
         public Nullable<int> OccupationId { get; set; }
