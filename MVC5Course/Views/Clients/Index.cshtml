@@ -9,6 +9,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<p>
+    <form action="">
+        <input type="search" name="search" value="" />
+        <input type="submit" value="搜尋" />
+    </form>
+</p>
 <table class="table">
     <tr>
         <th>
@@ -121,3 +127,6 @@
 }
 
 </table>
+@*<script>
+    var test = "@Model.ToArray<>";
+</script>*@
