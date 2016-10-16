@@ -21,6 +21,14 @@ namespace MVC5Course.Controllers
             if (!string.IsNullOrEmpty(search))
             {
                 client = client.Where(q => q.FirstName == search);
+                //entityframework search two column to filter
+                //var data = from p in db.Client
+                //           where p.FirstName.Contains(search)
+                //           select new
+                //           {
+                //               p.FirstName,
+                //               p.LastName
+                //           };
             }
             else
             {
