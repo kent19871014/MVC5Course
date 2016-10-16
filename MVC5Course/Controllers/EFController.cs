@@ -89,5 +89,11 @@ namespace MVC5Course.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult ClientContribution()
+        {
+            var data = db.vw_ClientOrderTotal.Take(100);
+            return View(data);
+        }
     }
 }
