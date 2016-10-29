@@ -9,7 +9,7 @@ namespace MVC5Course.Controllers
 {
     public abstract class BaseController : Controller
     {
-        private FabricsEntities db = new FabricsEntities();
+        public FabricsEntities db = new FabricsEntities();
 
         protected override void HandleUnknownAction(string actionName)
         {
