@@ -20,7 +20,7 @@ namespace MVC5Course.Controllers
             //var repo = new ProductRepository();
             //repo.UnitOfWork = new EFUnitOfWork();
             //var data = db.Product.Take(10).OrderByDescending(p => p.ProductId).ToList();
-            var data = repo.All().Take(10).OrderByDescending(p => p.ProductId).ToList();
+            var data = repo.Get所有資料依據_ProductID排序(10).ToList();
             return View(data);
         }
 
