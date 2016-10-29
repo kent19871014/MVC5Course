@@ -10,7 +10,7 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class ClientsController : Controller
+    public class ClientsController : BaseController
     {
         private FabricsEntities db = new FabricsEntities();
 
