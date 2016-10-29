@@ -235,6 +235,7 @@
     <Compile Include="Models\Product.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductBatchUpdateViewModel.cs" />
     <Compile Include="Models\ProductRepository.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
@@ -395,6 +396,7 @@
     <Content Include="Views\MB\Index.cshtml" />
     <Content Include="Views\MB\MyForm.cshtml" />
     <Content Include="Views\MB\MyFormResult.cshtml" />
+    <Content Include="Views\MB\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
