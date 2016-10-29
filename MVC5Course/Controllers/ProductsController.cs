@@ -66,6 +66,8 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Products/Edit/5
+        //自訂路由
+        //[Route("prod/edit/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -122,8 +124,9 @@ namespace MVC5Course.Controllers
             //Product product = db.Product.Find(id);
             Product product = repo.Find(id);
             //db.Product.Remove(product);
-            product.IsDeleted = true;
+            //product.IsDeleted = true;
             //db.SaveChanges();
+            repo.Delete(product);
             repo.UnitOfWork.Commit();
             return RedirectToAction("Index");
         }

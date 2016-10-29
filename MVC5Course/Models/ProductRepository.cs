@@ -19,6 +19,11 @@ namespace MVC5Course.Models
         {
             return this.All().Take(n).OrderByDescending(p => p.ProductId);
         }
+
+        public override void Delete(Product entity)
+        {
+            entity.IsDeleted = true;
+        }
     }
 
 	public  interface IProductRepository : IRepository<Product>
