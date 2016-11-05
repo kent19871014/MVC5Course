@@ -10,12 +10,13 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
+    [Authorize]
     public class ClientsController : BaseController
     {
         //private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index(string search)
+        public ActionResult Index(string search, int? CreditRating, string Gender)
         {
             var client = db.Client.Include(c => c.Occupation);
             if (!string.IsNullOrEmpty(search))
@@ -30,10 +31,12 @@ namespace MVC5Course.Controllers
                 //               p.LastName
                 //           };
             }
-            else
-            {
-                client = client.Take(10).OrderByDescending(q => q.ClientId);
-            }
+            client = client.Take(10).OrderByDescending(q => q.ClientId);
+
+            var options = (from p in db.Client select p.CreditRating).Distinct().OrderBy(p => p.Value).ToList();
+            //ViewBag.CreditRating = new SelectList(options)
+            ViewBag.CreditRating = new SelectList(options);
+
 
             return View(client.ToList());
         }
