@@ -34,13 +34,12 @@ namespace MVC5Course.Controllers
             client = client.Take(10).OrderByDescending(q => q.ClientId);
 
             var options = (from p in db.Client select p.CreditRating).Distinct().OrderBy(p => p.Value).ToList();
-            //ViewBag.CreditRating = new SelectList(options)
             ViewBag.CreditRating = new SelectList(options);
-
+            ViewBag.Gender = new SelectList(new string[] { "M", "F" });
 
             return View(client.ToList());
         }
-
+        
         // GET: Clients/Details/5
         public ActionResult Details(int? id)
         {
@@ -57,7 +56,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients/Create
-        [ChildActionOnly]
+        //[ChildActionOnly]
         public ActionResult Create()
         {
             ViewBag.OccupationId = new SelectList(db.Occupation, "OccupationId", "OccupationName");
