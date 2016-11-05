@@ -55,6 +55,12 @@
 }
 
 </table>
+
+@using PagedList;
+@using PagedList.Mvc;
+<div style="text-align:center;">
+    @Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { PageNo = p }));
+</div>
 <div id="details"></div>
 
 
