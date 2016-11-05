@@ -20,12 +20,15 @@ namespace MVC5Course.Controllers
         {
             db.Configuration.LazyLoadingEnabled = false;
         }
+
+        [Route("prods")]
         // GET: api/ProductsApi
         public IQueryable<Product> GetProduct()
         {
             return db.Product;
         }
 
+        [Route("prods/{id}")]
         // GET: api/ProductsApi/5
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
@@ -37,6 +40,18 @@ namespace MVC5Course.Controllers
             }
 
             return Ok(product);
+        }
+
+        [Route("prods/{id}/orderlines")]
+        public IHttpActionResult GetProductOrderLine(int id)
+        {
+            Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            db.Configuration.LazyLoadingEnabled = false;
+            return Ok(db.OrderLine.Where(p => p.ProductId == id).ToList());
         }
 
         // PUT: api/ProductsApi/5
